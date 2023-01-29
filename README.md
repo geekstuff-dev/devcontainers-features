@@ -16,6 +16,6 @@ List of features and their source.
 | [Docker](https://gitlab.com/geekstuff.dev/devcontainers/features/docker) | [v0.0.5](https://gitlab.com/geekstuff.dev/devcontainers/features/docker/-/tree/v0.0.5) |
 | [GCloud CLI](https://gitlab.com/geekstuff.dev/devcontainers/features/gcloud-cli) | [v0.0.7](https://gitlab.com/geekstuff.dev/devcontainers/features/gcloud-cli/-/tree/v0.0.7) |
 | [Starship](https://gitlab.com/geekstuff.dev/devcontainers/features/starship) | [v0.0.5](https://gitlab.com/geekstuff.dev/devcontainers/features/starship/-/tree/v0.0.5) |
-| [TF Backend Gitlab](https://gitlab.com/geekstuff.dev/devcontainers/features/tf-backend-gitlab) | [v0.0.5](https://gitlab.com/geekstuff.dev/devcontainers/features/tf-backend-gitlab/-/tree/v0.0.5) |
-| [Terraform](https://gitlab.com/geekstuff.dev/devcontainers/features/terraform) | [v0.1.1](https://gitlab.com/geekstuff.dev/devcontainers/features/terraform/-/tree/v0.1.1) |
+| [TF Backend Gitlab](https://gitlab.com/geekstuff.dev/devcontainers/features/tf-backend-gitlab) | [v0.0.6](https://gitlab.com/geekstuff.dev/devcontainers/features/tf-backend-gitlab/-/tree/v0.0.6) |
+| [Terraform](https://gitlab.com/geekstuff.dev/devcontainers/features/terraform) | [v0.1.2](https://gitlab.com/geekstuff.dev/devcontainers/features/terraform/-/tree/v0.1.2) |
 | [Vault CLI](https://gitlab.com/geekstuff.dev/devcontainers/features/vault-cli) | [v0.0.4](https://gitlab.com/geekstuff.dev/devcontainers/features/vault-cli/-/tree/v0.0.4) |
