@@ -1,13 +1,16 @@
 name: "Release dev container features & Generate Documentation"
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
+  #workflow_dispatch:
+  workflow_run:
+    workflows: ["Validate devcontainer-feature.json files"]
+    types: [completed]
+    branches: [main]
 
 jobs:
   deploy:
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: |
+      ${{ github.ref == 'refs/heads/main' }} &&
+      ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
