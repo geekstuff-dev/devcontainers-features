@@ -1,4 +1,4 @@
-name: "Validate devcontainer-feature.json files"
+name: "Validate features"
 on:
   workflow_dispatch:
   pull_request:
@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: "Validate devcontainer-feature.json files"
+      - name: "Validate features"
         uses: devcontainers/action@v1
         with:
           validate-only: "true"
