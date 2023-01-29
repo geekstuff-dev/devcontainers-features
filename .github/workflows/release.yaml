@@ -40,7 +40,7 @@ jobs:
           git config --global user.email github-actions@github.com
           git config --global user.name github-actions
           git config pull.rebase false
-          message='Automated documentation update'
+          message='Add generate features docs'
           # Add / update and commit
           git add */**/README.md
           git commit -m 'Automated documentation update' || export NO_UPDATES=true
