@@ -26,6 +26,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # TODO Make this work and automatic
       - name: Create PR for Documentation
         id: push_image_info
         env:

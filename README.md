@@ -18,4 +18,4 @@ List of features and their source.
 | [Starship](https://gitlab.com/geekstuff.dev/devcontainers/features/starship) | [v0.0.4](https://gitlab.com/geekstuff.dev/devcontainers/features/starship/-/tree/v0.0.4) |
 | [TF Backend Gitlab](https://gitlab.com/geekstuff.dev/devcontainers/features/tf-backend-gitlab) | [v0.0.4](https://gitlab.com/geekstuff.dev/devcontainers/features/tf-backend-gitlab/-/tree/v0.0.4) |
 | [Terraform](https://gitlab.com/geekstuff.dev/devcontainers/features/terraform) | [v0.1.0](https://gitlab.com/geekstuff.dev/devcontainers/features/terraform/-/tree/v0.1.0) |
-| [Vault CLI](https://gitlab.com/geekstuff.dev/devcontainers/features/vault-cli) | [v0.0.3](https://gitlab.com/geekstuff.dev/devcontainers/features/vault-cli/-/tree/v0.0.3) |
+| [Vault CLI](https://gitlab.com/geekstuff.dev/devcontainers/features/vault-cli) | [v0.0.4](https://gitlab.com/geekstuff.dev/devcontainers/features/vault-cli/-/tree/v0.0.4) |
