@@ -27,6 +27,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # TODO Make this work and automatic
+      #   https://github.com/geekstuff-dev/devcontainers-features/settings/secrets/actions
+      #   https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
       - name: Create PR for Documentation
         id: push_image_info
         env:
