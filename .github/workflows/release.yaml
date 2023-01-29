@@ -27,7 +27,7 @@ jobs:
           generate-docs: "true"
 
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.VAULT_TOKEN_OCI }}
 
       # TODO Make this work and automatic
       #   https://github.com/geekstuff-dev/devcontainers-features/settings/secrets/actions
