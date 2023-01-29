@@ -1,11 +1,10 @@
 {
     "name": "GCloud CLI",
     "id": "gcloud-cli",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": "Installs Google Cloud CLI",
-    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/gcloud-cli/-/blob/v0.0.6/README.md",
-    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/gcloud-cli/-/blob/v0.0.6/LICENSE",
-    "keywords": ["gcloud"],
+    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/gcloud-cli/-/blob/v0.0.7/README.md",
+    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/gcloud-cli/-/blob/v0.0.7/LICENSE",
     "installsAfter": [
 		"ghcr.io/geekstuff-dev/devcontainers-features/basics",
 		"ghcr.io/geekstuff-dev/devcontainers-features/docker"
