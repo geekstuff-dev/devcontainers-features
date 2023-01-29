@@ -1,0 +1,10 @@
+{
+    "name": "Vault CLI",
+    "id": "vault-cli",
+    "version": "0.0.3",
+    "description": "Installs Hashicorp Vault CLI",
+    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/vault-cli/-/blob/v0.0.3/README.md",
+    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/vault-cli/-/blob/v0.0.3/LICENSE",
+    "keywords": ["secrets", "security"],
+    "capAdd": ["IPC_LOCK"]
+}

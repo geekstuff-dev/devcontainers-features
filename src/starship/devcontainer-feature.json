@@ -1,0 +1,10 @@
+{
+    "name": "Starship",
+    "id": "starship",
+    "version": "0.0.4",
+    "description": "Install and setup Starship.rs",
+    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/starship/-/blob/v0.0.4/README.md",
+    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/starship/-/blob/v0.0.4/LICENSE",
+    "keywords": ["terminal"],
+    "installsAfter": ["ghcr.io/geekstuff-dev/devcontainers-features/basics"]
+}

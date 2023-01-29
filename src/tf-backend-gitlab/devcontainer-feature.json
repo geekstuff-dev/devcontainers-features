@@ -1,0 +1,43 @@
+{
+    "name": "Terraform backend - Gitlab",
+    "id": "tf-backend-gitlab",
+    "version": "0.0.4",
+    "description": "Configures the Terraform environment variables for Gitlab managed Terraform Backend",
+    "keywords": ["terraform", "terraform-backend", "gitlab"],
+    "installsAfter": [
+        "ghcr.io/geekstuff-dev/devcontainers-features/direnv",
+        "ghcr.io/geekstuff-dev/devcontainers-features/terraform"
+    ],
+    "options": {
+        "instance_host": {
+            "type": "string",
+            "default": "gitlab.com",
+            "description": "Enter the Gitlab instance hostname (if not gitlab.com)"
+        },
+        "state_project_id": {
+            "type": "string",
+            "description": "Enter the Gitlab project ID in which the TF states will be stored"
+        },
+        "state_prefix": {
+            "type": "string",
+            "default": "",
+            "proposal": [
+                "dev/"
+            ],
+            "description": "Optional, add prefix to tfstates created using this devcontainer"
+        }
+    },
+    "customizations": {
+		"vscode": {
+			"extensions": [
+				"GitLab.gitlab-workflow"
+			]
+		}
+	},
+    "containerEnv": {
+        "TF_LIB": "/lib/tf-backend-gitlab",
+        "TF_DIRENV": "/lib/tf-backend-gitlab/direnv",
+        "TF_MAKE": "/lib/tf-backend-gitlab/make",
+        "DIRENV_WARN_TIMEOUT": "9s"
+    }
+}
