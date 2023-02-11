@@ -126,6 +126,18 @@ errorOut() {
     exit $errorCode
 }
 
+skipExecution() {
+    local message="$1"
+    if test -n "$message"; then
+        out "$message"
+    fi
+    if [ "$DIRECT_EXECUTION" != "1" ]; then
+        exit 0
+    fi
+    echo "Replacing a skipping of this job for an error (DIRECT_EXECUTION=1)"
+    exit 1
+}
+
 ensureUserProfile() {
     if ! test -e $USER_PROFILE; then
         touch $USER_PROFILE
