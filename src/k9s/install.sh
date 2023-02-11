@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -e
+
+TMP_DIR=$(mktemp -d)
+TARGET="$TMP_DIR/k9s.tar.gz"
+BIN="$TMP_DIR/k9s"
+
+if ! command -v k9s &>/dev/null; then
+    curl -fsSL -o $TARGET https://github.com/derailed/k9s/releases/download/${VERSION}/k9s_Linux_amd64.tar.gz
+    tar -C $TMP_DIR -zxf $TARGET
+    install -m a+rx -t /usr/local/bin $TMP_DIR/k9s
+    rm -rf $TMP_DIR
+fi
+
+### k9s autocomplete
+###   disabled since it has one but does not seem to autocomplete anything
+# mkdir -p /etc/bash_completion.d
+# k9s completion bash > /etc/bash_completion.d/k9s

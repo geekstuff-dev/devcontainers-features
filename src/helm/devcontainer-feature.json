@@ -1,0 +1,15 @@
+{
+	"name": "Helm",
+	"id": "helm",
+	"version": "0.0.1",
+	"description": "Installs helm",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/helm/-/blob/v0.0.1/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/helm/-/blob/v0.0.1/LICENSE",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"Tim-Koehler.helm-intellisense"
+			]
+		}
+	}
+}

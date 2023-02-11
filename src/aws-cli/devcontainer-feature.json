@@ -1,0 +1,28 @@
+{
+	"name": "AWS Cli",
+	"id": "aws-cli",
+	"version": "0.0.1",
+	"description": "Installs latest AWS cli",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/aws-cli/-/blob/v0.0.1/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/aws-cli/-/blob/v0.0.1/LICENSE",
+	"installsAfter": [
+		"ghcr.io/geekstuff-dev/devcontainers-features/basics"
+	],
+	"options": {
+        "project": {
+            "type": "string",
+            "default": "",
+            "description": "Project ID"
+        },
+        "region": {
+            "type": "string",
+            "default": "",
+            "description": "Region"
+        }
+    },
+	"mounts": [{
+		"source": "dev-${devcontainerId}-aws",
+		"target": "/home/dev/.aws",
+		"type": "volume"
+	}]
+}

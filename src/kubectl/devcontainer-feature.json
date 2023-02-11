@@ -1,0 +1,16 @@
+{
+	"name": "Kubectl",
+	"id": "kubectl",
+	"version": "0.0.1",
+	"description": "Installs kubectl",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/kubectl/-/blob/v0.0.1/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/kubectl/-/blob/v0.0.1/LICENSE",
+	"installsAfter": [
+		"ghcr.io/geekstuff-dev/devcontainers-features/basics"
+	],
+	"mounts": [{
+		"source": "dev-${devcontainerId}-kube",
+		"target": "/home/dev/.kube",
+		"type": "volume"
+	}]
+}
