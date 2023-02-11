@@ -3,6 +3,7 @@
 set -e
 
 DEV_USERNAME=dev
+DEBIAN_FRONTEND=noninteractive
 
 if command -v apk 1>/dev/null 2>/dev/null; then
     mkdir -p /etc/bash_completion.d
@@ -17,7 +18,7 @@ elif command -v apt 1>/dev/null 2>/dev/null; then
         else
             curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
         fi
-        if ! command -v apt-add-repository 1>dev/null 2>dev/null; then
+        if ! command -v apt-add-repository &>dev/null; then
             apt-get update
             apt-get install -y software-properties-common
         fi
