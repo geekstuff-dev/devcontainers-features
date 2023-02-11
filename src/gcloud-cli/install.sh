@@ -51,6 +51,8 @@ if ! test -e /home/dev/google-cloud-sdk/bin/gcloud; then
     chmod +x "$script_file"
     chown -R $DEV_USERNAME: $scratch
     sudo -u $DEV_USERNAME "$script_file" --disable-prompts
+    sudo -u $DEV_USERNAME gcloud components install --quiet \
+        gke-gcloud-auth-plugin
     rm -rf "$scratch"
 
     # autocompletion
