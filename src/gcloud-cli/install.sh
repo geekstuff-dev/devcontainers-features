@@ -17,10 +17,6 @@ echo "Wrote ENV vars in [/etc/profile.d/gcloud-cli.sh]"
 
 # Tiny make lib over TF commands
 set -eux
-mkdir -p $DEV_LIB_GCLOUD
-cp scripts/gcloud-cli.mk $DEV_LIB_GCLOUD/gcloud-cli.mk
-chmod -R go+r $DEV_LIB_GCLOUD
-echo "Wrote TF make lib at [$DEV_LIB_GCLOUD/gcloud-cli.mk]"
 
 # needs python
 if ! command -v python 1>/dev/null 2>/dev/null; then
@@ -42,7 +38,8 @@ if ! command -v python 1>/dev/null 2>/dev/null; then
 fi
 
 # install gcloud cli
-if ! test -e /home/dev/google-cloud-sdk/bin/gcloud; then
+GCLOUD_BIN=/home/dev/google-cloud-sdk/bin/gcloud
+if ! test -e $GCLOUD_BIN; then
     export CLOUDSDK_CORE_DISABLE_PROMPTS=1
     scratch="$(mktemp -d -t tmp.XXXXXXXXXX)" || exit 1
     script_file="$scratch/install.sh"
@@ -51,7 +48,7 @@ if ! test -e /home/dev/google-cloud-sdk/bin/gcloud; then
     chmod +x "$script_file"
     chown -R $DEV_USERNAME: $scratch
     sudo --login -u $DEV_USERNAME "$script_file" --disable-prompts
-    sudo --login -u $DEV_USERNAME gcloud components install --quiet \
+    sudo --login -u $DEV_USERNAME $GCLOUD_BIN components install --quiet \
         gke-gcloud-auth-plugin
     rm -rf "$scratch"
 
@@ -77,5 +74,5 @@ if test "$DOCKER_AUTH" = "true"; then
         exit 1
     fi
     sudo --login --user=$DEV_USERNAME \
-        gcloud auth configure-docker
+        $GCLOUD_BIN auth configure-docker
 fi
