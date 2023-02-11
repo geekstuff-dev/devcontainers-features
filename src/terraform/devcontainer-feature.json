@@ -1,10 +1,10 @@
 {
     "name": "Terraform",
     "id": "terraform",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "Installs and setup Terraform and Tfswitch",
-    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/terraform/-/blob/v0.1.4/README.md",
-    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/terraform/-/blob/v0.1.4/LICENSE",
+    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/terraform/-/blob/v0.1.5/README.md",
+    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/terraform/-/blob/v0.1.5/LICENSE",
     "installsAfter": ["ghcr.io/geekstuff-dev/devcontainers-features/basics"],
     "options": {
         "version": {

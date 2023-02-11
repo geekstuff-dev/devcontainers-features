@@ -18,11 +18,8 @@ elif command -v apt 1>/dev/null 2>/dev/null; then
         else
             curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
         fi
-        if ! test -e /usr/bin/add-apt-repository; then
-            apt-get update
-            apt-get install -y software-properties-common
-        fi
-        apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+        echo "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list
+        apt-get update
     fi
     rm -rf /var/lib/apt/lists/*
 fi
