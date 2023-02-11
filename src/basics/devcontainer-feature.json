@@ -1,11 +1,16 @@
 {
     "name": "Basics",
     "id": "basics",
-    "version": "0.0.9",
+    "version": "0.0.20",
     "description": "Creates a dev linux user, add basic packages, vscode requirements and minimal functionality",
-    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v0.0.9/README.md",
-    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v0.0.9/LICENSE",
-    "keywords": ["basics"],
+    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v0.0.20/README.md",
+    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v0.0.20/LICENSE",
+    "options": {
+        "sleep_before_browser": {
+            "type": "string",
+            "default": "0"
+        }
+    },
     "customizations": {
         "vscode": {
             "extensions": [
@@ -13,6 +18,31 @@
                 "yzhang.markdown-all-in-one"
             ],
             "settings": {
+                "[json]": {
+					"editor.detectIndentation": false,
+					"editor.insertSpaces": false,
+					"editor.tabSize": 4
+				},
+                "[jsonc]": {
+					"editor.detectIndentation": false,
+					"editor.insertSpaces": false,
+					"editor.tabSize": 4
+				},
+                "[makefile]": {
+					"editor.detectIndentation": false,
+					"editor.insertSpaces": false,
+					"editor.tabSize": 4
+				},
+                "[markdown]": {
+					"editor.detectIndentation": false,
+					"editor.insertSpaces": true,
+					"editor.tabSize": 4
+				},
+                "[yaml]": {
+					"editor.detectIndentation": false,
+					"editor.insertSpaces": true,
+					"editor.tabSize": 2
+				},
                 "cSpell.ignorePaths": [
                     "*.json",
                     "*.vscode",
@@ -20,6 +50,12 @@
                     "*.yml"
                 ],
                 "files.eol": "\n",
+				"json.schemas": [
+					{
+						"fileMatch": ["devcontainer-feature.json"],
+						"url": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainerFeature.schema.json"
+					}
+				],
                 "terminal.integrated.profiles.linux": {
                     "bash": {"path": "bash", "args": ["-l"]}
                 },

@@ -21,7 +21,7 @@ requireEnvs "DEV_USERNAME"
 
 # nothing to do if no GIT_EMAIL defined
 if test -z $GIT_EMAIL; then
-    skipExecution "No custom git user.email or user.signingkey value to configure"
+    return 0
 fi
 
 GITCONFIG=/home/${DEV_USERNAME}/.gitconfig-workspace

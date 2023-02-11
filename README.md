@@ -11,7 +11,7 @@ Contributions, issues and such are welcomed **in their own open source projects*
 
 | Name | Latest Tag | Feature Path |
 | --- | --- | --- |
-| [Basics](./src/basics/README.md) | [v0.0.9](https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/tree/v0.0.9) | [ghcr.io/geekstuff-dev/devcontainers-features/basics](https://github.com/users/geekstuff-dev/packages/container/package/devcontainers-features%2Fbasics) |
+| [Basics](./src/basics/README.md) | [v0.0.20](https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/tree/v0.0.20) | [ghcr.io/geekstuff-dev/devcontainers-features/basics](https://github.com/users/geekstuff-dev/packages/container/package/devcontainers-features%2Fbasics) |
 | [Direnv](./src/direnv/README.md) | [v0.0.7](https://gitlab.com/geekstuff.dev/devcontainers/features/direnv/-/tree/v0.0.7) | [ghcr.io/geekstuff-dev/devcontainers-features/direnv](https://github.com/users/geekstuff-dev/packages/container/package/devcontainers-features%2Fdirenv) |
 | [Docker](./src/docker/README.md) | [v0.0.5](https://gitlab.com/geekstuff.dev/devcontainers/features/docker/-/tree/v0.0.5) | [ghcr.io/geekstuff-dev/devcontainers-features/docker](https://github.com/users/geekstuff-dev/packages/container/package/devcontainers-features%2Fdocker) |
 | [GCloud CLI](./src/gcloud-cli/README.md) | [v0.1.0](https://gitlab.com/geekstuff.dev/devcontainers/features/gcloud-cli/-/tree/v0.1.0) | [ghcr.io/geekstuff-dev/devcontainers-features/gcloud-cli](https://github.com/users/geekstuff-dev/packages/container/package/devcontainers-features%2Fgcloud-cli) |
