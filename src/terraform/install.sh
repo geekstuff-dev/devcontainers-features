@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
@@ -18,7 +18,7 @@ elif command -v apt 1>/dev/null 2>/dev/null; then
         else
             curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
         fi
-        if ! command -v apt-add-repository &>dev/null; then
+        if ! test -e /usr/bin/add-apt-repository; then
             apt-get update
             apt-get install -y software-properties-common
         fi
