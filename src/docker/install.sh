@@ -44,7 +44,6 @@ else
     # create 998 docker group
     if isApk; then
         # not sure why alpine has this ping group.
-        groupdel ping
         groupmod -g 998 docker
     elif isApt; then
         groupadd -g 998 docker
