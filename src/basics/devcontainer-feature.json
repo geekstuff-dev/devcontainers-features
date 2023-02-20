@@ -5,7 +5,6 @@
     "description": "Creates a dev linux user, add basic packages, vscode requirements and minimal functionality",
     "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v0.0.21/README.md",
     "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v0.0.21/LICENSE",
-    "containerUser": "dev",
     "remoteUser": "dev",
     "customizations": {
         "vscode": {
