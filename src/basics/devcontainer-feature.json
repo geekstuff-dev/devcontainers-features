@@ -1,16 +1,12 @@
 {
     "name": "Basics",
     "id": "basics",
-    "version": "0.0.20",
+    "version": "0.0.21",
     "description": "Creates a dev linux user, add basic packages, vscode requirements and minimal functionality",
-    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v0.0.20/README.md",
-    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v0.0.20/LICENSE",
-    "options": {
-        "sleep_before_browser": {
-            "type": "string",
-            "default": "0"
-        }
-    },
+    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v0.0.21/README.md",
+    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v0.0.21/LICENSE",
+    "containerUser": "dev",
+    "remoteUser": "dev",
     "customizations": {
         "vscode": {
             "extensions": [
@@ -44,6 +40,9 @@
 					"editor.tabSize": 2
 				},
                 "cSpell.ignorePaths": [
+                    "*.code-workspace",
+					"*.env",
+					"*.envrc",
                     "*.json",
                     "*.vscode",
                     "*.yaml",
@@ -62,5 +61,11 @@
                 "terminal.integrated.defaultProfile.linux": "bash"
             }
         }
-    }
+    },
+    "containerEnv": {
+        "CONTAINER_WORKSPACE_FOLDER": "${containerWorkspaceFolder}",
+        "HOST_WORKSPACE_FOLDER": "${localWorkspaceFolder}",
+        "LIB_DEVCONTAINER": "/lib/devcontainer",
+        "LIB_DEVCONTAINER_FEATURES": "/lib/devcontainer/features"
+	}
 }

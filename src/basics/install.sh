@@ -11,3 +11,5 @@ baseDir="$(dirname $0)"
 . $baseDir/scripts/3-vscode.sh
 . $baseDir/scripts/4-gitconfig.sh
 . $baseDir/scripts/5-browser.sh
+. $baseDir/scripts/6-completion.sh
+. $baseDir/scripts/7-lib-devcontainer.sh
