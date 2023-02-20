@@ -11,11 +11,7 @@ Creates a dev linux user, add basic packages, vscode requirements and minimal fu
 }
 ```
 
-## Options
 
-| Options Id | Description | Type | Default Value |
-|-----|-----|-----|-----|
-| sleep_before_browser | - | string | 0 |
 
 
 
