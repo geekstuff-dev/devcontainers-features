@@ -1,36 +1,43 @@
 #!/bin/sh
 set -e
 
-if command -v apk 1>/dev/null 2>/dev/null; then
-    apk add --no-cache vault libcap
-    mkdir -p /etc/bash_completion.d
-    VAULT_BIN=/usr/sbin/vault
-elif command -v apt 1>/dev/null 2>/dev/null; then
-    apt-get update
-    if ! command -v curl 1>/dev/null 2>/dev/null; then
-        apt-get install -y curl
+# install vault if not present already
+if ! command -v vault &>/dev/null; then
+    TMP_DIR=$(mktemp -d)
+    TARGET="${TMP_DIR}/vault.zip"
+    URL="https://releases.hashicorp.com/vault/${VERSION}/vault_${VERSION}_linux_amd64.zip"
+    BIN_DIR="/usr/bin"
+    BIN="${BIN_DIR}/vault"
+
+    curl -fsSL -o ${TARGET} "${URL}"
+    unzip -q -d ${TMP_DIR} ${TARGET}
+    install -m 755 -t ${BIN_DIR} ${TMP_DIR}/vault
+    rm -rf $TMP_DIR
+
+    if command -v apk 1>/dev/null 2>/dev/null; then
+        apk add --update --no-cache libcap
+        setcap cap_ipc_lock= /usr/sbin/vault
     fi
-    if ! grep -Rnq 'hashicorp.com' /etc/apt/sources.list*; then
-        if test -e /etc/apt/trusted.gpg.d/; then
-            curl -sS https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/hashicorp.gpg 1>/dev/null
-        else
-            curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
-        fi
-        if ! command -v apt-add-repository 1>dev/null 2>dev/null; then
-            apt-get install -y software-properties-common
-        fi
-        apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-    fi
-    apt-get update
-    apt-get install -y vault
-    rm -rf /var/lib/apt/lists/*
-    VAULT_BIN=/usr/bin/vault
+
+    cat > /etc/bash_completion.d/vault << EOF
+complete -C $BIN vault
+EOF
 fi
 
-setcap -r $VAULT_BIN
+# ENV vars
+echo "" > /etc/profile.d/vault-cli.sh
+if test -n "$VAULT_ADDR"; then
+    echo "export VAULT_ADDR=$VAULT_ADDR" >> /etc/profile.d/vault-cli.sh
+fi
+if test -n "$VAULT_NAMESPACE"; then
+    echo "export VAULT_NAMESPACE=$VAULT_NAMESPACE" >> /etc/profile.d/vault-cli.sh
+fi
+if test -n "$VAULT_OIDC_PATH"; then
+    echo "export VAULT_OIDC_PATH=$VAULT_OIDC_PATH" >> /etc/profile.d/vault-cli.sh
+fi
+if test -n "$VAULT_OIDC_ROLE"; then
+    echo "export VAULT_OIDC_ROLE=$VAULT_OIDC_ROLE" >> /etc/profile.d/vault-cli.sh
+fi
+chmod +x /etc/profile.d/vault-cli.sh
 
-cat > /etc/bash_completion.d/vault << EOF
-complete -C $VAULT_BIN vault
-EOF
-
-echo "[] vault cli installed"
+echo "[] Vault CLI ensured"

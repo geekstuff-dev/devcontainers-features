@@ -1,9 +1,36 @@
 {
     "name": "Vault CLI",
     "id": "vault-cli",
-    "version": "0.0.4",
+    "version": "0.1.0",
     "description": "Installs Hashicorp Vault CLI",
-    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/vault-cli/-/blob/v0.0.4/README.md",
-    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/vault-cli/-/blob/v0.0.4/LICENSE",
+    "options": {
+        "vault_addr": {
+            "type": "string",
+            "default": "",
+            "description": "If provided, will be exported as VAULT_ADDR in devcontainer ENVs"
+        },
+        "vault_namespace": {
+            "type": "string",
+            "default": "",
+            "description": "If provided, will be exported as VAULT_NAMESPACE in devcontainer ENVs"
+        },
+        "vault_oidc_path": {
+            "type": "string",
+            "default": "",
+            "description": "If provided, will be exported as VAULT_OIDC_PATH in devcontainer ENVs"
+        },
+        "vault_oidc_role": {
+            "type": "string",
+            "default": "",
+            "description": "If provided, will be exported as VAULT_OIDC_ROLE in devcontainer ENVs"
+        },
+        "version": {
+            "type": "string",
+            "default": "1.12.4",
+            "description": "Vault CLI version"
+        }
+    },
+    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/vault-cli/-/blob/v0.1.0/README.md",
+    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/vault-cli/-/blob/v0.1.0/LICENSE",
     "capAdd": ["IPC_LOCK"]
 }
