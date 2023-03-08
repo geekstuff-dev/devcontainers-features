@@ -1,8 +1,9 @@
 {
     "name": "Vault CLI",
     "id": "vault-cli",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Installs Hashicorp Vault CLI",
+    "installsAfter": ["ghcr.io/geekstuff-dev/devcontainers-features/basics"],
     "options": {
         "vault_addr": {
             "type": "string",
@@ -30,7 +31,7 @@
             "description": "Vault CLI version"
         }
     },
-    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/vault-cli/-/blob/v0.1.0/README.md",
-    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/vault-cli/-/blob/v0.1.0/LICENSE",
+    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/vault-cli/-/blob/v0.1.1/README.md",
+    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/vault-cli/-/blob/v0.1.1/LICENSE",
     "capAdd": ["IPC_LOCK"]
 }
