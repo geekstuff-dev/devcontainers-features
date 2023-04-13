@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Load http proxy if set in basic feature
+if test -e $LIB_DEVCONTAINER_FEATURES/buildtime-http-proxy.sh; then
+    . $LIB_DEVCONTAINER_FEATURES/buildtime-http-proxy.sh
+fi
+
 # Install starship.rs
 
 . "$(dirname "$0")"/.common.sh
@@ -12,15 +17,19 @@ requireEnvs "DEV_USERNAME"
 USER_PROFILE=/home/${DEV_USERNAME}/.profile
 
 # Install Starship
-initialDir="$(pwd)"
-mkdir -p /tmp/starship
-cd /tmp/starship
-curl -ssSL https://starship.rs/install.sh -o install.sh
-chmod +x install.sh
-$(getCmdPrefix) ./install.sh -y
-rm install.sh
-cd "$initialDir"
-rm -rf /tmp/starship
+if command -v apk; then
+    apk add --update --no-cache starship
+else
+    initialDir="$(pwd)"
+    mkdir -p /tmp/starship
+    cd /tmp/starship
+    curl -ssSL https://starship.rs/install.sh -o install.sh
+    chmod +x install.sh
+    $(getCmdPrefix) ./install.sh -y
+    rm install.sh
+    cd "$initialDir"
+    rm -rf /tmp/starship
+fi
 
 ensureUserProfile
 if ! grep -qo "# Starship.rs" $USER_PROFILE; then
