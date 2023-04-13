@@ -1,6 +1,11 @@
 #!/bin/sh
 set -e
 
+# Load http proxy if set in basic feature
+if test -e $LIB_DEVCONTAINER_FEATURES/buildtime-http-proxy.sh; then
+    . $LIB_DEVCONTAINER_FEATURES/buildtime-http-proxy.sh
+fi
+
 # install vault if not present already
 if ! command -v vault &>/dev/null; then
     TMP_DIR=$(mktemp -d)
@@ -16,7 +21,7 @@ if ! command -v vault &>/dev/null; then
 
     if command -v apk 1>/dev/null 2>/dev/null; then
         apk add --update --no-cache libcap
-        setcap cap_ipc_lock= /usr/sbin/vault
+        setcap cap_ipc_lock= ${BIN_DIR}/vault
     fi
 
     cat > /etc/bash_completion.d/vault << EOF

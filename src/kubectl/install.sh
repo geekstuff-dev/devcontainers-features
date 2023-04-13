@@ -2,6 +2,11 @@
 
 set -e
 
+# Load http proxy if set in basic feature
+if test -e $LIB_DEVCONTAINER_FEATURES/buildtime-http-proxy.sh; then
+    . $LIB_DEVCONTAINER_FEATURES/buildtime-http-proxy.sh
+fi
+
 TMP_DIR=$(mktemp -d)
 TMP_BIN="$TMP_DIR/kubectl"
 

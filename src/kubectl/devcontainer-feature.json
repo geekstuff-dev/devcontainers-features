@@ -1,10 +1,10 @@
 {
 	"name": "Kubectl",
 	"id": "kubectl",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "Installs kubectl",
-	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/kubectl/-/blob/v0.0.1/README.md",
-	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/kubectl/-/blob/v0.0.1/LICENSE",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/kubectl/-/blob/v0.1.0/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/kubectl/-/blob/v0.1.0/LICENSE",
 	"installsAfter": [
 		"ghcr.io/geekstuff-dev/devcontainers-features/basics"
 	],
