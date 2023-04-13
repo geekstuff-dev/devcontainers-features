@@ -13,3 +13,4 @@ baseDir="$(dirname $0)"
 . $baseDir/scripts/5-browser.sh
 . $baseDir/scripts/6-completion.sh
 . $baseDir/scripts/7-lib-devcontainer.sh
+. $baseDir/scripts/8-buildtime-http-proxy.sh

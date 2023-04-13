@@ -1,10 +1,27 @@
 {
     "name": "Basics",
     "id": "basics",
-    "version": "0.0.22",
+    "version": "0.1.0",
     "description": "Creates a dev linux user, add basic packages, vscode requirements and minimal functionality",
-    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v0.0.22/README.md",
-    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v0.0.22/LICENSE",
+    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v0.1.0/README.md",
+    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v0.1.0/LICENSE",
+    "options": {
+        "buildtime_http_proxy": {
+            "type": "string",
+            "default": "",
+            "description": "An HTTP_PROXY to use during build time"
+        },
+        "buildtime_https_proxy": {
+            "type": "string",
+            "default": "",
+            "description": "An HTTPS_PROXY to use during build time"
+        },
+        "buildtime_no_proxy": {
+            "type": "string",
+            "default": "",
+            "description": "A NO_PROXY list to use during build time"
+        }
+    },
     "customizations": {
         "vscode": {
             "extensions": [
