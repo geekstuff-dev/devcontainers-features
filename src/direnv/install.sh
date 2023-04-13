@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Load http proxy if set in basic feature
+if test -e $LIB_DEVCONTAINER_FEATURES/buildtime-http-proxy.sh; then
+    . $LIB_DEVCONTAINER_FEATURES/buildtime-http-proxy.sh
+fi
+
 # Install direnv
 
 . "$(dirname "$0")"/.common.sh

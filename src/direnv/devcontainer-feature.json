@@ -1,10 +1,10 @@
 {
     "name": "Direnv",
     "id": "direnv",
-    "version": "0.0.7",
+    "version": "0.1.0",
     "description": "Installs and configures Direnv",
-    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/direnv/-/blob/v0.0.7/README.md",
-    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/direnv/-/blob/v0.0.7/LICENSE",
+    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/direnv/-/blob/v0.1.0/README.md",
+    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/direnv/-/blob/v0.1.0/LICENSE",
     "installsAfter": ["ghcr.io/geekstuff-dev/devcontainers-features/basics"],
     "customizations": {
         "vscode": {
