@@ -11,7 +11,13 @@ Creates a dev linux user, add basic packages, vscode requirements and minimal fu
 }
 ```
 
+## Options
 
+| Options Id | Description | Type | Default Value |
+|-----|-----|-----|-----|
+| buildtime_http_proxy | An HTTP_PROXY to use during build time | string | - |
+| buildtime_https_proxy | An HTTPS_PROXY to use during build time | string | - |
+| buildtime_no_proxy | A NO_PROXY list to use during build time | string | - |
 
 
 
