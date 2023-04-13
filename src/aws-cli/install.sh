@@ -2,7 +2,10 @@
 
 set -e
 
-# https://confluence.ubisoft.com/pages/viewpage.action?pageId=1001062810
+# Load http proxy if set in basic feature
+if test -e $LIB_DEVCONTAINER_FEATURES/buildtime-http-proxy.sh; then
+    . $LIB_DEVCONTAINER_FEATURES/buildtime-http-proxy.sh
+fi
 
 TMP_DIR=$(mktemp -d)
 TARGET="$TMP_DIR/aws-cli.zip"
