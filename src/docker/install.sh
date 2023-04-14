@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Load http proxy if set in basic feature
+if test -e $LIB_DEVCONTAINER_FEATURES/buildtime-http-proxy.sh; then
+    . $LIB_DEVCONTAINER_FEATURES/buildtime-http-proxy.sh
+fi
+
 # Install docker and setup docker group(s)
 
 # NOTE on docker, docker sock and docker group ID
