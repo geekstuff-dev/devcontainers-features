@@ -13,6 +13,12 @@ Installs helm
 
 
 
+## Customizations
+
+### VS Code Extensions
+
+- `Tim-Koehler.helm-intellisense`
+
 
 
 ---

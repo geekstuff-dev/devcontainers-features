@@ -13,6 +13,12 @@ Installs and configures Direnv
 
 
 
+## Customizations
+
+### VS Code Extensions
+
+- `mikestead.dotenv`
+
 
 
 ---

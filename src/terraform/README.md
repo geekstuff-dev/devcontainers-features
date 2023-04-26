@@ -18,6 +18,13 @@ Installs and setup Terraform and Tfswitch
 | version | Select or enter a terraform version | string | latest |
 | tfswitch_version | Select or enter a terraform version | string | 0.13.1300 |
 
+## Customizations
+
+### VS Code Extensions
+
+- `emeraldwalk.runonsave`
+- `hashicorp.terraform`
+
 
 
 ---

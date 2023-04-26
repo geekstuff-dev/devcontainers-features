@@ -19,6 +19,13 @@ Creates a dev linux user, add basic packages, vscode requirements and minimal fu
 | buildtime_https_proxy | An HTTPS_PROXY to use during build time | string | - |
 | buildtime_no_proxy | A NO_PROXY list to use during build time | string | - |
 
+## Customizations
+
+### VS Code Extensions
+
+- `streetsidesoftware.code-spell-checker`
+- `yzhang.markdown-all-in-one`
+
 
 
 ---

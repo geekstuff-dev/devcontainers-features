@@ -19,6 +19,12 @@ Configures the Terraform environment variables for Gitlab managed Terraform Back
 | state_project_id | Enter the Gitlab project ID in which the TF states will be stored | string | - |
 | state_prefix | Optional, add prefix to tfstates created using this devcontainer | string | - |
 
+## Customizations
+
+### VS Code Extensions
+
+- `GitLab.gitlab-workflow`
+
 
 
 ---
