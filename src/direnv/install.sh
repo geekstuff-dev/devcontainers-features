@@ -31,15 +31,53 @@ if ! grep -qo "# direnv" $USER_PROFILE; then
 
 # direnv
 eval "$(direnv hook bash)"
-direnv allow /workspaces >/dev/null 2>&1
 EOF
 fi
 
 mkdir -p /home/${DEV_USERNAME}/.config/direnv
-echo '[global]' > /home/dev/.config/direnv/config.toml
-echo 'load_dotenv = false' >> /home/${DEV_USERNAME}/.config/direnv/config.toml
-echo '' >> /home/${DEV_USERNAME}/.config/direnv/config.toml
-echo '[whitelist]' >> /home/${DEV_USERNAME}/.config/direnv/config.toml
-echo 'prefix = [ "/workspaces" ]' >> /home/${DEV_USERNAME}/.config/direnv/config.toml
+cat > /home/${DEV_USERNAME}/.config/direnv/config.toml << 'EOF'
+[global]
+load_dotenv = false
+warn_timeout = "15s"
+
+[whitelist]
+prefix = [ "/workspaces", "/workspace" ]
+EOF
+
+# Add err function - An easiy and more visible way to throw errors in this scenario
+# Example usage:
+#   err "my error message" && return 1
+cat > /home/${DEV_USERNAME}/.config/direnv/direnvrc << 'EOF'
+export ENVRC_ERROR=""
+export ENVRC_FIXCMD=""
+
+err() {
+    #tput setaf 1 >&2
+    tput bold >&2
+    #tput smul >&2
+    tput setaf 1 >&2
+    printf "[error]"
+
+    tput sgr0 >&2
+
+    tput setaf 8 >&2
+    tput bold >&2
+    #tput setaf 7 >&2
+    printf " $1" >&2
+
+    tput sgr0 >&2
+
+    ENVRC_ERROR="$1"
+
+    if test -n "$2"; then
+        tput bold >&2
+        printf " \`$2\`" >&2
+        tput sgr0 >&2
+        ENVRC_FIXCMD="$2"
+    fi
+
+    printf "\n" >&2
+}
+EOF
 
 out "[] direnv is installed and configured"
