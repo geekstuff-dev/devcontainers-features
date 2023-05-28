@@ -2,6 +2,10 @@
 
 .PHONY: tf-init
 tf-init:
+	terraform init -input=false
+
+.PHONY: tf-init-upgrade
+tf-init-upgrade:
 	terraform init --upgrade -input=false
 
 .PHONY: tf-validate

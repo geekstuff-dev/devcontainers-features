@@ -1,7 +1,7 @@
 {
     "name": "Terraform backend - Gitlab",
     "id": "tf-backend-gitlab",
-    "version": "0.0.6",
+    "version": "0.1.0",
     "description": "Configures the Terraform environment variables for Gitlab managed Terraform Backend",
     "installsAfter": [
         "ghcr.io/geekstuff-dev/devcontainers-features/direnv",
