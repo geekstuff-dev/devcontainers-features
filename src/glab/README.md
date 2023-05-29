@@ -1,5 +1,5 @@
 
-# Gas (gas)
+# Glab (glab)
 
 Install GitLab CLI - glab tool
 
@@ -7,7 +7,7 @@ Install GitLab CLI - glab tool
 
 ```json
 "features": {
-    "ghcr.io/geekstuff-dev/devcontainers-features/gas:0": {}
+    "ghcr.io/geekstuff-dev/devcontainers-features/glab:0": {}
 }
 ```
 
