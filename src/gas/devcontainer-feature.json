@@ -1,0 +1,14 @@
+{
+	"name": "Gas",
+	"id": "gas",
+	"version": "0.0.1",
+	"description": "Install gas cli to fetch and list all git repos branch and status under a folder",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/gas/-/blob/v0.0.1/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/gas/-/blob/v0.0.1/LICENSE",
+	"options": {
+		"version": {
+			"type": "string",
+			"default": "3.1.1"
+		}
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"name": "Rancher CLI",
+	"id": "rancher-cli",
+	"version": "0.0.1",
+	"description": "Installs Rancher-cli",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/rancher-cli/-/blob/v0.0.1/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/rancher-cli/-/blob/v0.0.1/LICENSE",
+	"options": {
+		"version": {
+			"type": "string",
+			"default": "2.7.2-rc1"
+		}
+	}
+}

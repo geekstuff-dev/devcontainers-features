@@ -1,0 +1,22 @@
+{
+	"name": "Gas",
+	"id": "gas",
+	"version": "0.0.1",
+	"description": "Install GitLab CLI - glab tool",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/gas/-/blob/v0.0.1/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/gas/-/blob/v0.0.1/LICENSE",
+	"options": {
+		"version": {
+			"type": "string",
+			"default": "1.30.0"
+		},
+		"gitlab_host": {
+			"type": "string",
+			"default": ""
+		},
+		"gitlab_group": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}
