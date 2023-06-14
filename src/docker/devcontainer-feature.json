@@ -1,10 +1,10 @@
 {
     "name": "Docker",
     "id": "docker",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Installs Docker clients and mounts Docker sock",
-    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/docker/-/blob/v0.1.1/README.md",
-    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/docker/-/blob/v0.1.1/LICENSE",
+    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/docker/-/blob/v0.1.2/README.md",
+    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/docker/-/blob/v0.1.2/LICENSE",
     "installsAfter": ["ghcr.io/geekstuff-dev/devcontainers-features/basics"],
     "mounts": [{
         "source": "/var/run/docker.sock",

@@ -46,23 +46,26 @@ if test -n "$DOCKER_GID"; then
     groupadd -g $DOCKER_GID docker
     usermod -aG docker $DEV_USERNAME
 else
-    # create 998 docker group
+    # handle 998 docker group
     if ! getent group 998 1>/dev/null 2>/dev/null; then
         if isApk; then
-            # not sure why alpine has this ping group.
+            # not sure why alpine has this ping group there.
             groupmod -g 998 docker
         elif isApt; then
             groupadd -g 998 docker
         fi
-        usermod -aG docker $DEV_USERNAME
     fi
+    usermod -aG docker $DEV_USERNAME
 
+    # handle 999 docker group
     if ! getent group 999 1>/dev/null 2>/dev/null; then
-        # create 999 docker group
-        groupadd -g 999 docker2
-        # make user part of both
-        usermod -aG docker2 $DEV_USERNAME
+        if isApk; then
+            groupmod -g 999 docker2
+        elif isApt; then
+            groupadd -g 999 docker2
+        fi
     fi
+    usermod -aG docker2 $DEV_USERNAME
 fi
 
 # ensure docker folder
