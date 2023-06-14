@@ -55,7 +55,7 @@ else
             groupadd -g 998 docker
         fi
     fi
-    usermod -aG docker $DEV_USERNAME
+    usermod -aG 998 $DEV_USERNAME
 
     # handle 999 docker group
     if ! getent group 999 1>/dev/null 2>/dev/null; then
@@ -65,7 +65,7 @@ else
             groupadd -g 999 docker2
         fi
     fi
-    usermod -aG docker2 $DEV_USERNAME
+    usermod -aG 999 $DEV_USERNAME
 fi
 
 # ensure docker folder
