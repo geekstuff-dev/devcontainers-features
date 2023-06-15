@@ -21,6 +21,7 @@ if isApk; then
             less \
             libstdc++ \
             make \
+            ncurses \
             nano \
             openssh-client \
             openssl \
