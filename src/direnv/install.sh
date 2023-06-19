@@ -48,8 +48,8 @@ EOF
 # Example usage:
 #   err "my error message" && return 1
 cat > /home/${DEV_USERNAME}/.config/direnv/direnvrc << 'EOF'
-export ENVRC_ERROR=""
-export ENVRC_FIXCMD=""
+ENVRC_ERROR=""
+ENVRC_FIXCMD=""
 
 err() {
     #tput setaf 1 >&2
@@ -67,13 +67,13 @@ err() {
 
     tput sgr0 >&2
 
-    ENVRC_ERROR="$1"
+    export ENVRC_ERROR="$1"
 
     if test -n "$2"; then
         tput bold >&2
         printf " \`$2\`" >&2
         tput sgr0 >&2
-        ENVRC_FIXCMD="$2"
+        export ENVRC_FIXCMD="$2"
     fi
 
     printf "\n" >&2
