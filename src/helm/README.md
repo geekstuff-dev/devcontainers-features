@@ -11,7 +11,11 @@ Installs helm
 }
 ```
 
+## Options
 
+| Options Id | Description | Type | Default Value |
+|-----|-----|-----|-----|
+| version | The helm version | string | - |
 
 ## Customizations
 
