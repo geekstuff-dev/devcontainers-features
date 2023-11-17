@@ -1,10 +1,17 @@
 {
 	"name": "Helm",
 	"id": "helm",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Installs helm",
-	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/helm/-/blob/v0.1.0/README.md",
-	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/helm/-/blob/v0.1.0/LICENSE",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/helm/-/blob/v0.1.1/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/helm/-/blob/v0.1.1/LICENSE",
+	"options": {
+        "version": {
+            "type": "string",
+            "default": "",
+            "description": "The helm version"
+        }
+	},
 	"customizations": {
 		"vscode": {
 			"extensions": [
