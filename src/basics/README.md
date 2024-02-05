@@ -7,7 +7,7 @@ Creates a dev linux user, add basic packages, vscode requirements and minimal fu
 
 ```json
 "features": {
-    "ghcr.io/geekstuff-dev/devcontainers-features/basics:0": {}
+    "ghcr.io/geekstuff-dev/devcontainers-features/basics:1": {}
 }
 ```
 
