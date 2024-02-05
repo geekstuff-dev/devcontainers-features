@@ -39,8 +39,10 @@ fi
 # case most likely
 if ! test -e /home/${DEV_USERNAME}/.profile; then
     cat << 'EOF' > /home/${DEV_USERNAME}/.profile
-# load bash completion
-source /etc/profile.d/bash_completion.sh
+# load bash completion if present
+if test -f /etc/profile.d/bash_completion.sh; then
+    source /etc/profile.d/bash_completion.sh
+fi
 
 # include .bashrc if it exists
 if [ -n "$BASH_VERSION" ]; then
