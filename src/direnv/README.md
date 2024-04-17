@@ -11,7 +11,11 @@ Installs and configures Direnv
 }
 ```
 
+## Options
 
+| Options Id | Description | Type | Default Value |
+|-----|-----|-----|-----|
+| VERSION | - | string | v2.34.0 |
 
 ## Customizations
 
