@@ -19,7 +19,7 @@ USER_PROFILE=/home/${DEV_USERNAME}/.profile
 ensureUserProfile
 
 #LATEST_RELEASE=$(github_latest_release direnv/direnv)
-LATEST_RELEASE=v2.32.2
+LATEST_RELEASE=v2.34.0
 
 curl -sfL https://github.com/direnv/direnv/releases/download/${LATEST_RELEASE}/direnv.linux-amd64 \
     -o /usr/local/bin/direnv
