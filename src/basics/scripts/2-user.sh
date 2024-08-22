@@ -24,7 +24,7 @@ if isApk; then
 
 elif isApt; then
     # Ubuntu 24.04 decided to pre-create user 1000 in docker images...
-    if id ubuntu &>/dev/null; then
+    if grep -s 'ubuntu:x:1000:1000' /etc/passwd; then
         userdel --force --remove ubuntu
     fi
 
