@@ -23,6 +23,11 @@ if isApk; then
         && chown ${DEV_USERNAME}: /home/${DEV_USERNAME}/.config
 
 elif isApt; then
+    # Ubuntu 24.04 decided to pre-create user 1000 in docker images...
+    if id ubuntu &>/dev/null; then
+        userdel --force --remove ubuntu
+    fi
+
     groupadd --gid $DEV_GID $DEV_USERNAME \
         && useradd -s /bin/bash --uid $DEV_UID --gid $DEV_GID -m $DEV_USERNAME \
         && apt-get update \
