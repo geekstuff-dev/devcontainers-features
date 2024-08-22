@@ -48,31 +48,6 @@ errorOut() {
     exit $errorCode
 }
 
-ensureUserProfile() {
-    if ! test -e $USER_PROFILE; then
-        touch $USER_PROFILE
-        chown ${DEV_USERNAME}: $USER_PROFILE
-        chmod go-rwx $USER_PROFILE
-    fi
-}
-
-# build cmdprefix
-getCmdPrefix() {
-    local ENV_WHITELIST="$1"
-    local PREFIX=""
-
-    if [ "$(whoami)" == "root" ]; then
-        PREFIX="sudo -u ${DEV_USERNAME}"
-        if test -n "$ENV_WHITELIST"; then
-            PREFIX="$PREFIX --preserve-env=$ENV_WHITELIST"
-        fi
-
-        PREFIX="$PREFIX --"
-    fi
-
-    echo $PREFIX
-}
-
 # copied from: https://github.com/devcontainers/features/blob/main/src/go/install.sh
 find_version_from_git_tags() {
     local variable_name=$1
@@ -112,11 +87,6 @@ if ! isApt && ! isApk; then
     err "Could not detect a valid apt or apk context"
     exit 2
 fi
-
-# set default values
-export DEV_USERNAME=$(getValue DEV_USERNAME dev)
-export DEV_UID=$(getValue DEV_UID 1000)
-export DEV_GID=$(getValue DEV_GID 1000)
 
 # and other values
 export DEBIAN_FRONTEND=noninteractive
