@@ -1,0 +1,52 @@
+{
+	"name": "Rust",
+	"id": "rust",
+	"version": "0.0.1",
+	"description": "Installs Rust",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/rust/-/blob/v0.0.1/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/rust/-/blob/v0.0.1/LICENSE",
+	"installsAfter": ["ghcr.io/geekstuff-dev/devcontainers-features/basics"],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"bungcip.better-toml",
+				"rust-lang.rust-analyzer"
+			]
+		},
+		"settings": {
+			// NOTE: Would be nice if each features ignorePaths would merge instead of duplicating basic lists + rs
+			"cSpell.ignorePaths": [
+				"*.code-workspace",
+				"*.env",
+				"*.envrc",
+				"*.json",
+				"*.rs",
+				"*.vscode",
+				"*.yaml",
+				"*.yml"
+			]
+		}
+	},
+	"options": {
+		"version": {
+			"type": "string",
+			"proposals": [
+				"latest"
+			],
+			"default": "latest",
+			"description": "Select or enter a Rust version to install"
+		}
+	},
+	"containerEnv": {
+		"PATH": "/usr/local/rust/cargo/bin:${PATH}",
+		"RUSTUP_HOME": "/usr/local/rust/rustup"
+	},
+	"mounts": [
+		{
+			"source": "cargo",
+			"target": "/home/dev/.cargo",
+			"type": "volume"
+		}
+	],
+	"updateContentCommand": "test -e ~/.cargo/config.toml || ln -s /usr/local/rust/cargo/config.toml ~/.cargo/config.toml"
+}
