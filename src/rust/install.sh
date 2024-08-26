@@ -35,6 +35,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \
         --no-modify-path \
         --component rust-analysis \
         --component rust-src \
+        --component clippy \
         -y
 
 ## Prepare user cargo volume
@@ -55,6 +56,10 @@ chown dev: /usr/local/rust/cargo/config.toml
 ## Write completions for rustup and cargo
 $RUSTUP completions bash rustup > /etc/bash_completion.d/rustup
 $RUSTUP completions bash cargo > /etc/bash_completion.d/cargo
+
+## Install assets
+mkdir -p $DC_ASSETS_RUST
+cp files/* $DC_ASSETS_RUST/
 
 ## finished
 out "[] Rust ${TARGET_RUST_VERSION} is installed"

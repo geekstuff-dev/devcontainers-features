@@ -1,10 +1,10 @@
 {
 	"name": "Rust",
 	"id": "rust",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Installs Rust",
-	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/rust/-/blob/v0.0.1/README.md",
-	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/rust/-/blob/v0.0.1/LICENSE",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/rust/-/blob/v0.0.2/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/rust/-/blob/v0.0.2/LICENSE",
 	"installsAfter": ["ghcr.io/geekstuff-dev/devcontainers-features/basics"],
 	"customizations": {
 		"vscode": {
@@ -39,7 +39,8 @@
 	},
 	"containerEnv": {
 		"PATH": "/usr/local/rust/cargo/bin:${PATH}",
-		"RUSTUP_HOME": "/usr/local/rust/rustup"
+		"RUSTUP_HOME": "/usr/local/rust/rustup",
+		"DC_ASSETS_RUST": "/lib/devcontainer/images/rust"
 	},
 	"mounts": [
 		{
