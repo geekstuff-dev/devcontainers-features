@@ -13,6 +13,10 @@ fi
 if isApk; then
     apk add --update --no-cache grep build-base
     rm -rf /var/cache/apk/*
+else
+    apt-get update
+    apt-get install -y build-essential
+    rm -rf /var/lib/apt/lists/*
 fi
 
 ## Figure precise rust tag from option

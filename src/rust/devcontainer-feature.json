@@ -1,20 +1,20 @@
 {
 	"name": "Rust",
 	"id": "rust",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Installs Rust",
-	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/rust/-/blob/v0.0.2/README.md",
-	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/rust/-/blob/v0.0.2/LICENSE",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/rust/-/blob/v0.0.3/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/rust/-/blob/v0.0.3/LICENSE",
 	"installsAfter": ["ghcr.io/geekstuff-dev/devcontainers-features/basics"],
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"bungcip.better-toml",
-				"rust-lang.rust-analyzer"
+				"rust-lang.rust-analyzer",
+				"tamasfe.even-better-toml",
+				"vadimcn.vscode-lldb"
 			]
 		},
 		"settings": {
-			// NOTE: Would be nice if each features ignorePaths would merge instead of duplicating basic lists + rs
 			"cSpell.ignorePaths": [
 				"*.code-workspace",
 				"*.env",
@@ -24,7 +24,16 @@
 				"*.vscode",
 				"*.yaml",
 				"*.yml"
-			]
+			],
+			"debug.allowBreakpointsEverywhere": true,
+			"files.watcherExclude": {
+				"**/target/**": true
+			},
+			// NOTE: next one should move to basics feature
+			"remote.autoForwardPortsSource": "hybrid",
+			// NOTE: Would be nice if each features ignorePaths would merge instead of duplicating basic lists + rs
+			"rust-analyzer.check.command": "clippy",
+			"rust-analyzer.checkOnSave": true
 		}
 	},
 	"options": {
