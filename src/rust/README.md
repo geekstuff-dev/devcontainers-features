@@ -21,8 +21,9 @@ Installs Rust
 
 ### VS Code Extensions
 
-- `bungcip.better-toml`
 - `rust-lang.rust-analyzer`
+- `tamasfe.even-better-toml`
+- `vadimcn.vscode-lldb`
 
 
 
