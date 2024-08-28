@@ -34,10 +34,30 @@ if isApk; then
 elif isApt; then
     apt-get update
     apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common lsb-release
-    curl -fsSL https://download.docker.com/linux/$(lsb_release -is | tr '[:upper:]' '[:lower:]')/gpg | (OUT=$(apt-key add - 2>&1) || echo $OUT)
-    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(lsb_release -is | tr '[:upper:]' '[:lower:]') $(lsb_release -cs) stable"
-    apt-get update
-    apt-get install -y docker-ce-cli
+
+
+    if test -e /etc/os-release && grep -q 'VERSION_CODENAME=bookworm' /etc/os-release; then
+        # For debian bookworm, our previous method does not work. Follow current debian doc
+        # https://docs.docker.com/engine/install/debian/#install-using-the-repository
+        install -m 0755 -d /etc/apt/keyrings
+        curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+        chmod a+r /etc/apt/keyrings/docker.asc
+
+        # Add the repository to Apt sources:
+        echo \
+            "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+            $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+            tee /etc/apt/sources.list.d/docker.list > /dev/null
+        apt-get update
+        apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    else
+        # otherwise use previous method
+        curl -fsSL https://download.docker.com/linux/$(lsb_release -is | tr '[:upper:]' '[:lower:]')/gpg | (OUT=$(apt-key add - 2>&1) || echo $OUT)
+        add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(lsb_release -is | tr '[:upper:]' '[:lower:]') $(lsb_release -cs) stable"
+        apt-get update
+        apt-get install -y docker-ce-cli
+    fi
+
     rm -rf /var/lib/apt/lists/*
 fi
 
