@@ -49,7 +49,7 @@ elif isApt; then
             $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
             tee /etc/apt/sources.list.d/docker.list > /dev/null
         apt-get update
-        apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+        apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     else
         # otherwise use previous method
         curl -fsSL https://download.docker.com/linux/$(lsb_release -is | tr '[:upper:]' '[:lower:]')/gpg | (OUT=$(apt-key add - 2>&1) || echo $OUT)
