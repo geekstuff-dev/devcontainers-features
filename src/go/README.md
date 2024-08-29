@@ -16,6 +16,7 @@ Installs Go
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | version | Select or enter a Go version to install | string | latest |
+| golangciLintVersion | Version of golangci-lint to install | string | latest |
 
 ## Customizations
 
