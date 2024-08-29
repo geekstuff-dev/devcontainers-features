@@ -35,6 +35,18 @@ $GO install golang.org/x/tools/gopls@latest
 $GO install gotest.tools/gotestsum@latest
 $GO install honnef.co/go/tools/cmd/staticcheck@latest
 
+# golangci-lint
+GOLANGCILINT_VERSION="${GOLANGCILINTVERSION:-"latest"}"
+if test "$GOLANGCILINT_VERSION" = "latest" || test "$GOLANGCILINT_VERSION" = ""; then
+    echo "Installing golangci-lint latest..."
+    curl -fsSL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | \
+        sh -s -- -b "/go"
+else
+    echo "Installing golangci-lint ${GOLANGCILINT_VERSION}..."
+    curl -fsSL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | \
+        sh -s -- -b "/go" "v${GOLANGCILINT_VERSION}"
+fi
+
 # create user go path
 GO_USER_PATH=/home/dev/go
 mkdir -p $GO_USER_PATH

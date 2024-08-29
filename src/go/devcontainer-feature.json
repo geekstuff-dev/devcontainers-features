@@ -1,41 +1,46 @@
 {
-    "name": "Go",
-    "id": "go",
-    "version": "0.0.2",
-    "description": "Installs Go",
-    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/go/-/blob/v0.0.2/README.md",
-    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/go/-/blob/v0.0.2/LICENSE",
-    "installsAfter": ["ghcr.io/geekstuff-dev/devcontainers-features/basics"],
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "golang.Go"
-            ]
-        }
-    },
-    "options": {
-        "version": {
-            "type": "string",
-            "proposals": [
-                "latest",
-                "none",
-                "1.23",
-                "1.22"
-            ],
-            "default": "latest",
-            "description": "Select or enter a Go version to install"
-        }
-    },
-    "containerEnv": {
-        "PATH": "/home/dev/go/bin:/go/bin:/usr/local/go/bin:${PATH}",
-        // set your own containerEnv value for this if you already have a volume you would like this cache to be in
-        "GO_USER_PATH": "/home/dev/go"
+	"name": "Go",
+	"id": "go",
+	"version": "0.0.3",
+	"description": "Installs Go",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/go/-/blob/v0.0.3/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/go/-/blob/v0.0.3/LICENSE",
+	"installsAfter": ["ghcr.io/geekstuff-dev/devcontainers-features/basics"],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"golang.Go"
+			]
+		}
 	},
-    "mounts": [{
-        "source": "go",
-        "target": "/home/dev/go",
-        "type": "volume"
-    }],
-    // here we set the final GOPATH to user cache then system cache
+	"options": {
+		"version": {
+			"type": "string",
+			"proposals": [
+				"latest",
+				"none",
+				"1.23",
+				"1.22"
+			],
+			"default": "latest",
+			"description": "Select or enter a Go version to install"
+		},
+		"golangciLintVersion": {
+			"type": "string",
+			"default": "latest",
+			"description": "Version of golangci-lint to install"
+		}
+	},
+	"containerEnv": {
+		"PATH": "/home/dev/go/bin:/go/bin:/usr/local/go/bin:${PATH}",
+		// set your own containerEnv value for this if you already have a volume you would like this cache to be in
+		"GO_USER_PATH": "/home/dev/go"
+	},
+	"mounts": [{
+		"source": "go",
+		"target": "/home/dev/go",
+		"type": "volume"
+	}],
+	// here we set the final GOPATH to user cache then system cache
 	"updateContentCommand": "go env -w GOPATH=${GO_USER_PATH}:/go"
 }
