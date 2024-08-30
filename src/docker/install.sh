@@ -90,9 +90,14 @@ else
     # Installing docker in Ubuntu 24.04 =
     # - 998 group already owned by systemd-network
     # - docker taking group 994
-    if isApk && getent group 994 1>/dev/null 2>/dev/null; then
-        usermod -aG 994 $DEV_USERNAME
+    if ! getent group 994 1>/dev/null 2>/dev/null; then
+        if isApk; then
+            groupmod -g 994 docker3
+        elif isApt; then
+            groupadd -g 994 docker3
+        fi
     fi
+    usermod -aG 994 $DEV_USERNAME
 fi
 
 # ensure docker folder
