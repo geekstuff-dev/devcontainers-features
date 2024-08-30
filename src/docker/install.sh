@@ -86,6 +86,13 @@ else
         fi
     fi
     usermod -aG 999 $DEV_USERNAME
+
+    # Installing docker in Ubuntu 24.04 =
+    # - 998 group already owned by systemd-network
+    # - docker taking group 994
+    if isApk && getent group 994 1>/dev/null 2>/dev/null; then
+        usermod -aG 994 $DEV_USERNAME
+    fi
 fi
 
 # ensure docker folder
