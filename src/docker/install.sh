@@ -68,22 +68,13 @@ if test -n "$DOCKER_GID"; then
 else
     # handle 998 docker group
     if ! getent group 998 1>/dev/null 2>/dev/null; then
-        if isApk; then
-            # not sure why alpine has this ping group there.
-            groupmod -g 998 docker
-        elif isApt; then
-            groupadd -g 998 docker
-        fi
+        groupadd -g 998 docker1
     fi
     usermod -aG 998 $DEV_USERNAME
 
     # handle 999 docker group
     if ! getent group 999 1>/dev/null 2>/dev/null; then
-        if isApk; then
-            groupmod -g 999 docker2
-        elif isApt; then
-            groupadd -g 999 docker2
-        fi
+        groupadd -g 999 docker2
     fi
     usermod -aG 999 $DEV_USERNAME
 
@@ -91,11 +82,7 @@ else
     # - 998 group already owned by systemd-network
     # - docker taking group 994
     if ! getent group 994 1>/dev/null 2>/dev/null; then
-        if isApk; then
-            groupmod -g 994 docker3
-        elif isApt; then
-            groupadd -g 994 docker3
-        fi
+        groupadd -g 994 docker3
     fi
     usermod -aG 994 $DEV_USERNAME
 fi
