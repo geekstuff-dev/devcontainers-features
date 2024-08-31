@@ -1,17 +1,19 @@
 {
 	"name": "Rust",
 	"id": "rust",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Installs Rust",
-	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/rust/-/blob/v0.0.3/README.md",
-	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/rust/-/blob/v0.0.3/LICENSE",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/rust/-/blob/v0.0.4/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/rust/-/blob/v0.0.4/LICENSE",
 	"installsAfter": ["ghcr.io/geekstuff-dev/devcontainers-features/basics"],
 	"customizations": {
 		"vscode": {
 			"extensions": [
 				"rust-lang.rust-analyzer",
 				"tamasfe.even-better-toml",
-				"vadimcn.vscode-lldb"
+				//// Disabling since its a big installation that pulls data on every start,
+				//// you don't constantly need this, and you can just add this next line to get it back.
+				// "vadimcn.vscode-lldb"
 			]
 		},
 		"settings": {
