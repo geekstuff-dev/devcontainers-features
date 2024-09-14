@@ -28,8 +28,7 @@ if ! command -v python 1>/dev/null 2>/dev/null; then
     if command -v apk 1>/dev/null 2>/dev/null; then
         export PYTHONUNBUFFERED=1
         apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
-        python3 -m ensurepip
-        pip3 install --no-cache --upgrade pip setuptools
+        apk add --update --no-cache py-pip py-setuptools
         mkdir -p /etc/bash_completion.d
     elif command -v apt 1>/dev/null 2>/dev/null; then
         apt-get update
