@@ -20,9 +20,9 @@ chmod -R go+r $DEV_LIB_AZURE
 chown -R $DEV_USERNAME: $DEV_LIB_AZURE
 
 if command -v apt; then
-    source install-apt.sh
+    ./install-apt.sh
 elif command -v apk; then
-    source install-apk.sh
+    ./install-apk.sh
 else
     echo "unsupported distro" && false
 fi
