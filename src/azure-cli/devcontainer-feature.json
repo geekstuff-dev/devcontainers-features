@@ -1,0 +1,20 @@
+{
+    "name": "Azure CLI",
+    "id": "azure-cli",
+    "version": "0.0.1",
+    "description": "Installs Azure CLI",
+    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/azure-cli/-/blob/v0.0.1/README.md",
+    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/azure-cli/-/blob/v0.0.1/LICENSE",
+    "installsAfter": [
+		"ghcr.io/geekstuff-dev/devcontainers-features/basics",
+		"ghcr.io/geekstuff-dev/devcontainers-features/docker"
+	],
+    "mounts": [{
+        "source": "dev-${devcontainerId}-azure",
+        "target": "/home/dev/.azure",
+        "type": "volume"
+    }],
+    "containerEnv": {
+        "DEV_LIB_AZURE": "/devcontainer/azure-cli"
+    }
+}
