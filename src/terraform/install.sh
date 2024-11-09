@@ -61,7 +61,7 @@ if ! command -v tfswitch 1>/dev/null 2>/dev/null; then
     cd "${TMPDIR}"
     TARBALL="${TMPDIR}/tfswitch.tar.gz"
     curl -sL -o "$TARBALL" \
-        https://github.com/warrensbox/terraform-switcher/releases/download/${TFSWITCH_VERSION}/terraform-switcher_${TFSWITCH_VERSION}_linux_amd64.tar.gz
+        https://github.com/warrensbox/terraform-switcher/releases/download/v${TFSWITCH_VERSION}/terraform-switcher_v${TFSWITCH_VERSION}_linux_amd64.tar.gz
     tar -xzf "$TARBALL"
     BINDIR=/usr/local/bin
     install -d "${BINDIR}"
@@ -73,6 +73,15 @@ if test "$TF_VERSION" != "latest"; then
     TFSWITCH_FLAG="$TF_VERSION"
 fi
 
+# attempt to fix timeout issue downloading this next file
+#   https://github.com/warrensbox/terraform-switcher/blob/fe26f44b93c1c527ae94765b20aa7a3da1ab6eac/lib/products.go#L131C21-L131C29
+mkdir -p /home/${DEV_USERNAME}/.terraform.versions
+curl -sL -o "/home/${DEV_USERNAME}/.terraform.versions/terraform_72D7468F.asc" \
+    https://www.hashicorp.com/.well-known/pgp-key.txt
+chown -R ${DEV_USERNAME}:${DEV_USERNAME} /home/${DEV_USERNAME}/.terraform.versions
+echo "[] hashicorp pgp-key.txt fetched"
+
+# have tfswitch install terraform
 sudo --login --user=$DEV_USERNAME \
     tfswitch \
         --chdir=/home/$DEV_USERNAME \
@@ -80,3 +89,9 @@ sudo --login --user=$DEV_USERNAME \
         $TFSWITCH_FLAG
 
 echo "[] tfswitch installed"
+
+# copy assets
+mkdir -p $DEV_LIB_TERRAFORM
+cp -R assets/* $DEV_LIB_TERRAFORM
+chmod -R go+r $DEV_LIB_TERRAFORM
+chown -R $DEV_USERNAME: $DEV_LIB_TERRAFORM

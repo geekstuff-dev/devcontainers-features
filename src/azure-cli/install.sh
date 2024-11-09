@@ -7,11 +7,11 @@ if test -e $LIB_DEVCONTAINER_FEATURES/buildtime-http-proxy.sh; then
     . $LIB_DEVCONTAINER_FEATURES/buildtime-http-proxy.sh
 fi
 
-USERNAME=dev
+DEV_USERNAME=dev
 
 # default azure config dir
-mkdir -p /home/${USERNAME}/.azure
-chown -R ${USERNAME}: /home/${USERNAME}/.azure
+mkdir -p /home/${DEV_USERNAME}/.azure
+chown -R ${DEV_USERNAME}: /home/${DEV_USERNAME}/.azure
 
 # ms signing key
 if test ! -e /etc/apt/keyrings/microsoft.gpg; then
@@ -36,8 +36,9 @@ if test ! -e /usr/bin/az; then
 fi
 
 # Copy scripts
-mkdir -p $FEAT_GS_AZURE
-cp assets/* $FEAT_GS_AZURE/
-
+mkdir -p $DEV_LIB_AZURE
+cp assets/* $DEV_LIB_AZURE/
+chmod -R go+r $DEV_LIB_AZURE
+chown -R $DEV_USERNAME: $DEV_LIB_AZURE
 #
 echo "Azure CLI configured"
