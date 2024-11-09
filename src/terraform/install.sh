@@ -56,6 +56,7 @@ if ! command -v tfswitch 1>/dev/null 2>/dev/null; then
         echo "  You can find the versions here: https://github.com/warrensbox/terraform-switcher/releases"
         exit 1
     fi
+    ORIGDIR="$(pwd)"
     TMPDIR="$(mktemp -d)"
     mkdir -p "${TMPDIR}"
     cd "${TMPDIR}"
@@ -66,6 +67,7 @@ if ! command -v tfswitch 1>/dev/null 2>/dev/null; then
     BINDIR=/usr/local/bin
     install -d "${BINDIR}"
     install "${TMPDIR}/tfswitch" "${BINDIR}/"
+    cd "${ORIGDIR}"
 fi
 
 TFSWITCH_FLAG="--latest"
