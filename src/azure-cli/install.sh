@@ -13,32 +13,19 @@ DEV_USERNAME=dev
 mkdir -p /home/${DEV_USERNAME}/.azure
 chown -R ${DEV_USERNAME}: /home/${DEV_USERNAME}/.azure
 
-# ms signing key
-if test ! -e /etc/apt/keyrings/microsoft.gpg; then
-    mkdir -p /etc/apt/keyrings
-    curl -sLS https://packages.microsoft.com/keys/microsoft.asc |
-        gpg --dearmor |
-        tee /etc/apt/keyrings/microsoft.gpg > /dev/null
-    chmod go+r /etc/apt/keyrings/microsoft.gpg
-fi
-
-# azure cli repo
-if test ! -e /etc/apt/sources.list.d/azure-cli.list; then
-    AZ_REPO=$(lsb_release -cs)
-    echo "deb [arch=`dpkg --print-architecture` signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" |
-        tee /etc/apt/sources.list.d/azure-cli.list
-fi
-
-# install azure-cli (az)
-if test ! -e /usr/bin/az; then
-    apt-get update
-    apt-get install -y azure-cli ca-certificates curl apt-transport-https lsb-release gnupg
-fi
-
 # Copy scripts
 mkdir -p $DEV_LIB_AZURE
 cp assets/* $DEV_LIB_AZURE/
 chmod -R go+r $DEV_LIB_AZURE
 chown -R $DEV_USERNAME: $DEV_LIB_AZURE
+
+if command -v apt; then
+    source install-apt.sh
+elif command -v apk; then
+    source install-apk.sh
+else
+    echo "unsupported distro" && false
+fi
+
 #
 echo "Azure CLI configured"
