@@ -16,7 +16,7 @@ Installs and setup Terraform and Tfswitch
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | version | Select or enter a terraform version | string | latest |
-| tfswitch_version | Select or enter a terraform version | string | 0.13.1300 |
+| tfswitch_version | Select or enter a terraform version | string | 1.2.3 |
 
 ## Customizations
 
