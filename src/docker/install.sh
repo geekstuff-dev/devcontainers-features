@@ -28,8 +28,7 @@ fi
 . "$(dirname "$0")"/.common.sh
 
 if isApk; then
-    apk update
-    apk add --no-cache docker shadow
+    apk --no-cache add docker docker-compose docker-cli-buildx shadow
     rm -rf /var/cache/apk/*
 elif isApt; then
     apt-get update
