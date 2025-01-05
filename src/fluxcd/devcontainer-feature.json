@@ -1,0 +1,8 @@
+{
+	"name": "Flux CD",
+	"id": "fluxcd",
+	"version": "0.0.1",
+	"description": "Installs fluxcd",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/fluxcd/-/blob/v0.0.1/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/fluxcd/-/blob/v0.0.1/LICENSE"
+}

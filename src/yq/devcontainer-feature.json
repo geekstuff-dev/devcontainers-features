@@ -1,0 +1,15 @@
+{
+	"name": "YQ",
+	"id": "yq",
+	"version": "0.0.1",
+	"description": "Installs YQ (jq for yaml)",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/yq/-/blob/v0.0.1/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/yq/-/blob/v0.0.1/LICENSE",
+	"options": {
+		"version": {
+			"default": "4.44.5",
+			"description": "YQ version",
+			"type": "string"
+		}
+	}
+}

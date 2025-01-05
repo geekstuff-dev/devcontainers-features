@@ -1,0 +1,16 @@
+{
+	"name": "Shared cache",
+	"id": "shared-cache",
+	"version": "0.0.1",
+	"description": "Mounts a shared volume",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/shared-cache/-/blob/v0.0.1/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/shared-cache/-/blob/v0.0.1/LICENSE",
+	"mounts": [{
+        "source": "dev-${devcontainerId}-shared",
+        "target": "/devcontainer/volumes/shared",
+        "type": "volume"
+    }],
+    "containerEnv": {
+        "SHARED_CACHE": "/devcontainer/volumes/shared"
+    }
+}
