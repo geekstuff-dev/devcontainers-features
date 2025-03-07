@@ -14,30 +14,67 @@ requireEnvs "DEV_USERNAME"
 # and should also be overridable by users with their own uncomitted values.
 requireEnvs "DEV_UID DEV_GID"
 
-if isApk; then
-    addgroup -g $DEV_GID $DEV_USERNAME \
-        && adduser --disabled-password -s /bin/bash --uid $DEV_UID -G $DEV_USERNAME $DEV_USERNAME \
-        && echo $DEV_USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$DEV_USERNAME \
-        && chmod 0440 /etc/sudoers.d/$DEV_USERNAME \
-        && mkdir -p /home/${DEV_USERNAME}/.config \
-        && chown ${DEV_USERNAME}: /home/${DEV_USERNAME}/.config
-
-elif isApt; then
-    # Ubuntu 24.04 decided to pre-create user 1000 in docker images...
-    if grep -s 'ubuntu:x:1000:1000' /etc/passwd; then
-        userdel --force --remove ubuntu
-    fi
-
-    groupadd --gid $DEV_GID $DEV_USERNAME \
-        && useradd -s /bin/bash --uid $DEV_UID --gid $DEV_GID -m $DEV_USERNAME \
-        && apt-get update \
-        && apt-get install -y sudo \
-        && rm -rf /var/lib/apt/lists/* \
-        && echo $DEV_USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$DEV_USERNAME \
-        && chmod 0440 /etc/sudoers.d/$DEV_USERNAME \
-        && mkdir -p /home/${DEV_USERNAME}/.config \
-        && chown ${DEV_USERNAME}: /home/${DEV_USERNAME}/.config
+# Ubuntu 24.04 decided to pre-create user 1000 in docker images..
+# (and this fix was implemented before next fix so for now its like that)
+if grep -s 'ubuntu:x:1000:1000' /etc/passwd; then
+    userdel --force --remove ubuntu
 fi
+
+# We need to assume a specific username and userid to allow using more pre-baked
+# devcontainer parts (like volumes), and so to make sure we are always compatible
+# with that, we create user dev with id 1000, and if that 1000 user already exist
+# in source image, we will try to adjust it to match our specs and allow all our
+# features public or internal to provide more features using these specs.
+
+if ! getent passwd 1000; then
+    out "Create user 1000"
+
+    if isApk; then
+        addgroup -g $DEV_GID $DEV_USERNAME \
+            && adduser --disabled-password -s /bin/bash --uid $DEV_UID -G $DEV_USERNAME $DEV_USERNAME
+
+    elif isApt; then
+        # Ubuntu 24.04 decided to pre-create user 1000 in docker images..
+        # (and this fix was implemented before the next block that updates pre-existing users)
+        if grep -s 'ubuntu:x:1000:1000' /etc/passwd; then
+            userdel --force --remove ubuntu
+        fi
+
+        groupadd --gid $DEV_GID $DEV_USERNAME \
+            && useradd -s /bin/bash --uid $DEV_UID --gid $DEV_GID -m $DEV_USERNAME \
+            && apt-get update \
+            && apt-get install -y sudo \
+            && rm -rf /var/lib/apt/lists/*
+    fi
+else
+    CURRENT_USERNAME="$(getent passwd 1000 | cut -d':' -f1)"
+
+    if test "$CURRENT_USERNAME" != "$DEV_USERNAME"; then
+        # We decided to support using this feature in pre-build microsoft images
+        # which is what this next part handles and tries to generalize for other images.
+        out "Normalize pre-existing user 1000"
+
+        usermod -l ${DEV_USERNAME} -d /home/${DEV_USERNAME} -m ${CURRENT_USERNAME}
+        groupmod -n ${DEV_USERNAME} ${CURRENT_USERNAME}
+
+        if test -e /etc/sudoers.d/${CURRENT_USERNAME}; then
+            rm /etc/sudoers.d/${CURRENT_USERNAME}
+        fi
+
+        if test -e /etc/profile.d/00-restore-env.sh; then
+            sed -i "s/${CURRENT_USERNAME}/${DEV_USERNAME}/g" /etc/profile.d/00-restore-env.sh
+        fi
+    else
+        out "Pre-existing user 1000 has same username."
+        out "We assume we created it and that its ok."
+    fi
+fi
+
+echo $DEV_USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$DEV_USERNAME
+chmod 0440 /etc/sudoers.d/$DEV_USERNAME
+
+mkdir -p /home/${DEV_USERNAME}/.config
+chown ${DEV_USERNAME}:${DEV_USERNAME} /home/${DEV_USERNAME}/.config
 
 # At this point we can assume bash is installed for both
 # alpine and debian images, so we only need to fix the alpine
