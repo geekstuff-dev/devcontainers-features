@@ -1,10 +1,10 @@
 {
     "name": "Basics",
     "id": "basics",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Creates a dev linux user, add basic packages, vscode requirements and minimal functionality",
-    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v1.0.2/README.md",
-    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v1.0.2/LICENSE",
+    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v1.0.3/README.md",
+    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v1.0.3/LICENSE",
     "options": {
         "buildtime_http_proxy": {
             "type": "string",
@@ -64,12 +64,20 @@
                     "*.yml"
                 ],
                 "files.eol": "\n",
+                "gitlab.duo.enabledWithoutGitlabProject": false,
+				"gitlab.duoChat.enabled": false,
+				"gitlab.duoCodeSuggestions.enabled": false,
+				"gitlab.duoCodeSuggestions.openTabsContext": false,
+				"gitlab.keybindingHints.enabled": false,
 				"json.schemas": [
 					{
 						"fileMatch": ["devcontainer-feature.json"],
 						"url": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainerFeature.schema.json"
 					}
 				],
+                "remote.autoForwardPorts": false,
+				"remote.forwardOnOpen": false,
+				"remote.restoreForwardedPorts": false,
                 "terminal.integrated.profiles.linux": {
                     "bash": {"path": "bash", "args": ["-l"]}
                 },
