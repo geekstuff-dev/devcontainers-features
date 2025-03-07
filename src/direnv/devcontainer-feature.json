@@ -1,10 +1,10 @@
 {
     "name": "Direnv",
     "id": "direnv",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "Installs and configures Direnv",
-    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/direnv/-/blob/v0.2.0/README.md",
-    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/direnv/-/blob/v0.2.0/LICENSE",
+    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/direnv/-/blob/v0.2.1/README.md",
+    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/direnv/-/blob/v0.2.1/LICENSE",
     "installsAfter": ["ghcr.io/geekstuff-dev/devcontainers-features/basics"],
 	"options": {
 		"VERSION": {
@@ -26,7 +26,7 @@
                 "files.associations": {
                     "*.env.dist": "dotenv",
                     "*.env": "dotenv",
-                    ".envrc": "dotenv"
+                    "*.envrc": "shellscript"
                 }
             }
         }
