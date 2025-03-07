@@ -1,0 +1,26 @@
+{
+	"name": "Restore terminals",
+	"id": "restore-terminals",
+	"version": "0.0.1",
+	"description": "Restore terminals extension + settings",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/restore-terminals/-/blob/v0.0.1/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/restore-terminals/-/blob/v0.0.1/LICENSE",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"EthanSK.restore-terminals"
+			],
+			"settings": {
+				"restoreTerminals.artificialDelayMilliseconds": 300,
+				"restoreTerminals.keepExistingTerminalsOpen": false,
+				"restoreTerminals.runOnStartup": true,
+				"restoreTerminals.terminals": [{
+					"splitTerminals": [{
+						"name": "dev",
+						"commands": []
+					}]
+				}]
+			}
+		}
+	}
+}
