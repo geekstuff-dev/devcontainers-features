@@ -1,10 +1,10 @@
 {
     "name": "Basics",
     "id": "basics",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Creates a dev linux user, add basic packages, vscode requirements and minimal functionality",
-    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v1.0.3/README.md",
-    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v1.0.3/LICENSE",
+    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v1.0.4/README.md",
+    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v1.0.4/LICENSE",
     "options": {
         "buildtime_http_proxy": {
             "type": "string",
@@ -63,12 +63,14 @@
                     "*.yaml",
                     "*.yml"
                 ],
+                "dev.containers.dockerCredentialHelper": false,
+				"editor.rulers": [
+					{"column": 80, "color": "#d8db1f32"},
+					{"column": 100, "color": "#ff00003b"}
+				],
+                "files.autoSave": "afterDelay",
+				"files.autoSaveDelay": 5000,
                 "files.eol": "\n",
-                "gitlab.duo.enabledWithoutGitlabProject": false,
-				"gitlab.duoChat.enabled": false,
-				"gitlab.duoCodeSuggestions.enabled": false,
-				"gitlab.duoCodeSuggestions.openTabsContext": false,
-				"gitlab.keybindingHints.enabled": false,
 				"json.schemas": [
 					{
 						"fileMatch": ["devcontainer-feature.json"],
@@ -86,7 +88,10 @@
         }
     },
     "containerEnv": {
+		"CONTAINER_WORKSPACE_FOLDER": "${containerWorkspaceFolder}",
+		"HOST_WORKSPACE_FOLDER": "${localWorkspaceFolder}",
         "LIB_DEVCONTAINER": "/lib/devcontainer",
-        "LIB_DEVCONTAINER_FEATURES": "/lib/devcontainer/features"
+        "LIB_DEVCONTAINER_FEATURES": "/lib/devcontainer/features",
+		"MAKEFLAGS": "--no-print-directory"
 	}
 }
