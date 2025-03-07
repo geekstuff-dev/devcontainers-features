@@ -1,10 +1,10 @@
 {
 	"name": "GitLab workflow",
 	"id": "gitlab-workflow",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "GitLab workflow extension + settings",
-	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/gitlab-workflow/-/blob/v0.0.1/README.md",
-	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/gitlab-workflow/-/blob/v0.0.1/LICENSE",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/gitlab-workflow/-/blob/v0.0.2/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/gitlab-workflow/-/blob/v0.0.2/LICENSE",
 	"customizations": {
 		"vscode": {
 			"extensions": [
