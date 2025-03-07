@@ -1,0 +1,22 @@
+{
+	"name": "GitLab workflow",
+	"id": "gitlab-workflow",
+	"version": "0.0.1",
+	"description": "GitLab workflow extension + settings",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/gitlab-workflow/-/blob/v0.0.1/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/gitlab-workflow/-/blob/v0.0.1/LICENSE",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"GitLab.gitlab-workflow"
+			],
+			"settings": {
+				"gitlab.duo.enabledWithoutGitlabProject": false,
+				"gitlab.duoChat.enabled": false,
+				"gitlab.duoCodeSuggestions.enabled": false,
+				"gitlab.duoCodeSuggestions.openTabsContext": false,
+				"gitlab.keybindingHints.enabled": false
+			}
+		}
+	}
+}
