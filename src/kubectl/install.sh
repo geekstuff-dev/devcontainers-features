@@ -18,5 +18,10 @@ fi
 mkdir -p /home/dev/.kube
 chown -R dev:dev /home/dev/.kube
 
+# Add k alias
+echo 'alias k=kubectl' > /etc/profile.d/kubectl-alias.sh
+
+# Add autocompletion for both kubectl and k alias
 mkdir -p /etc/bash_completion.d
 kubectl completion bash > /etc/bash_completion.d/kubectl
+echo 'complete -o default -F __start_kubectl k' >> /etc/bash_completion.d/kubectl
