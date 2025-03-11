@@ -1,8 +1,8 @@
 {
 	"name": "Net tools",
 	"id": "nettools",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Installs dig and netcat",
-	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/nettools/-/blob/v0.0.1/README.md",
-	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/nettools/-/blob/v0.0.1/LICENSE"
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/nettools/-/blob/v0.0.2/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/nettools/-/blob/v0.0.2/LICENSE"
 }
