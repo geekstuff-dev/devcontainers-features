@@ -1,10 +1,10 @@
 {
     "name": "Basics",
     "id": "basics",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "Creates a dev linux user, add basic packages, vscode requirements and minimal functionality",
-    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v1.1.1/README.md",
-    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v1.1.1/LICENSE",
+    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v1.1.2/README.md",
+    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v1.1.2/LICENSE",
     "options": {
         "buildtime_http_proxy": {
             "type": "string",
@@ -31,12 +31,12 @@
             "settings": {
                 "[json]": {
 					"editor.detectIndentation": false,
-					"editor.insertSpaces": false,
+					"editor.insertSpaces": true,
 					"editor.tabSize": 4
 				},
                 "[jsonc]": {
 					"editor.detectIndentation": false,
-					"editor.insertSpaces": false,
+					"editor.insertSpaces": true,
 					"editor.tabSize": 4
 				},
                 "[makefile]": {
