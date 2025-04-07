@@ -25,3 +25,7 @@ echo 'alias k=kubectl' >> ${_CONTAINER_USER_HOME}/.bashrc
 mkdir -p /etc/bash_completion.d
 kubectl completion bash > /etc/bash_completion.d/kubectl
 echo 'complete -o default -F __start_kubectl k' >> /etc/bash_completion.d/kubectl
+
+# copy assets
+mkdir -p $FEAT_GS_KUBECTL
+cp assets/* $FEAT_GS_KUBECTL/
