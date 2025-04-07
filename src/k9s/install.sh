@@ -22,3 +22,7 @@ fi
 # ensure autocomplete
 mkdir -p /etc/bash_completion.d
 k9s completion bash > /etc/bash_completion.d/k9s
+
+# copy assets
+mkdir -p $FEAT_GS_K9S
+cp assets/* $FEAT_GS_K9S/
