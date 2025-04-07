@@ -1,10 +1,10 @@
 {
     "name": "Basics",
     "id": "basics",
-    "version": "1.1.2",
+    "version": "1.1.3",
     "description": "Creates a dev linux user, add basic packages, vscode requirements and minimal functionality",
-    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v1.1.2/README.md",
-    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v1.1.2/LICENSE",
+    "documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v1.1.3/README.md",
+    "licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/basics/-/blob/v1.1.3/LICENSE",
     "options": {
         "buildtime_http_proxy": {
             "type": "string",
@@ -68,6 +68,14 @@
 					{"column": 80, "color": "#d8db1f32"},
 					{"column": 100, "color": "#ff00003b"}
 				],
+                "files.associations": {
+                    ".pages": "yaml",
+                    "*.dist.env": "dotenv",
+                    "*.env.dist": "dotenv",
+                    "*.env": "dotenv",
+                    "*.envrc": "shellscript",
+                    "*.tpl": "helm-template"
+                },
                 "files.autoSave": "afterDelay",
 				"files.autoSaveDelay": 5000,
                 "files.eol": "\n",
