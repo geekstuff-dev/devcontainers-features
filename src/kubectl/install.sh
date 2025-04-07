@@ -20,6 +20,7 @@ chown -R dev:dev /home/dev/.kube
 
 # Add k alias
 echo 'alias k=kubectl' > /etc/profile.d/kubectl-alias.sh
+chmod +x /etc/profile.d/kubectl-alias.sh
 
 # Add autocompletion for both kubectl and k alias
 mkdir -p /etc/bash_completion.d
