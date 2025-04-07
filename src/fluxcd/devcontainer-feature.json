@@ -1,8 +1,11 @@
 {
 	"name": "Flux CD",
 	"id": "fluxcd",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Installs fluxcd",
-	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/fluxcd/-/blob/v0.0.1/README.md",
-	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/fluxcd/-/blob/v0.0.1/LICENSE"
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/fluxcd/-/blob/v0.0.2/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/fluxcd/-/blob/v0.0.2/LICENSE",
+	"containerEnv": {
+		"FEAT_GS_FLUXCD": "/lib/devcontainer/features/geekstuff/fluxcd/"
+	}
 }
