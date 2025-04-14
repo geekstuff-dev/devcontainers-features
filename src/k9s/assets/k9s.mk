@@ -13,11 +13,11 @@ flux-check:
 
 .PHONY: flux-build
 flux-build:
-	flux build kustomization flux-system --path flux/
+	flux build kustomization flux-system --path ${FLUX_PATH}
 
 .PHONY: flux-diff
 flux-diff:
-	flux diff kustomization flux-system --path flux/
+	flux diff kustomization flux-system --path ${FLUX_PATH}
 
 .PHONY: flux-events
 flux-events:
