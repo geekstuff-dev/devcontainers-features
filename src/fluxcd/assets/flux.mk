@@ -1,11 +1,11 @@
 .PHONY: flux-watch
-flux-watch: SLEEP ?= 3
 flux-watch:
-	watch -n${SLEEP} flux get kustomizations --all-namespaces
-
-.PHONY: flux-watch-original
-flux-watch-original:
 	flux get kustomizations --watch --timeout 15m0s
+
+.PHONY: flux-watch-table
+flux-watch-table: SLEEP ?= 3
+flux-watch-table:
+	watch -n${SLEEP} flux get kustomizations --all-namespaces
 
 .PHONY: flux-check
 flux-check:
