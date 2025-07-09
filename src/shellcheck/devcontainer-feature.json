@@ -1,10 +1,10 @@
 {
 	"name": "Shellcheck",
 	"id": "shellcheck",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Installs Shell check",
-	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/shellcheck/-/blob/v0.0.1/README.md",
-	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/shellcheck/-/blob/v0.0.1/LICENSE",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/shellcheck/-/blob/v0.0.2/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/shellcheck/-/blob/v0.0.2/LICENSE",
 	"options": {
         "version": {
             "type": "string",
