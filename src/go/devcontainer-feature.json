@@ -1,10 +1,10 @@
 {
 	"name": "Go",
 	"id": "go",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "Installs Go",
-	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/go/-/blob/v0.0.4/README.md",
-	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/go/-/blob/v0.0.4/LICENSE",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/go/-/blob/v0.0.5/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/go/-/blob/v0.0.5/LICENSE",
 	"installsAfter": ["ghcr.io/geekstuff-dev/devcontainers-features/basics"],
 	"customizations": {
 		"vscode": {

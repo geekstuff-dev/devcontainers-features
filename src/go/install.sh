@@ -32,6 +32,7 @@ GO=/usr/local/go/bin/go
 mkdir -p /go
 $GO env -w GOPATH=/go
 $GO install golang.org/x/tools/gopls@latest
+$GO install golang.org/x/vuln/cmd/govulncheck@latest
 $GO install gotest.tools/gotestsum@latest
 $GO install honnef.co/go/tools/cmd/staticcheck@latest
 
