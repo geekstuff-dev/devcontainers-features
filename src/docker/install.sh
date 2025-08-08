@@ -92,5 +92,7 @@ test -e /home/$DEV_USERNAME/.docker/config.json \
     || echo "{}" > /home/$DEV_USERNAME/.docker/config.json
 chown -R $DEV_USERNAME: /home/$DEV_USERNAME/.docker
 
+# copy buildx helper script
+install setup-buildx.sh /usr/bin/
 
 out "[] docker is installed"
