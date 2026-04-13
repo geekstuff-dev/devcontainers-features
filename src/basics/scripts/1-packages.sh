@@ -30,6 +30,7 @@ if isApk; then
             sudo \
             tree \
             unzip \
+        && command -v envsubst || apk add --no-cache gettext \
         && rm -rf /var/cache/apk/*
 
 elif isApt; then
@@ -55,6 +56,7 @@ elif isApt; then
             socat \
             tree \
             unzip \
+        && command -v envsubst || apt-get -y install gettext-base \
         && rm -rf /var/lib/apt/lists/*
 fi
 
