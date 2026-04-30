@@ -11,7 +11,7 @@ TMP_DIR=$(mktemp -d)
 TMP_BIN="$TMP_DIR/kubectl"
 
 if ! command -v kubectl &>/dev/null; then
-    curl -fsSL -o $TMP_BIN https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+    curl -fsSL -o $TMP_BIN "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
     install -m a+rx -t /usr/local/bin $TMP_BIN
 fi
 
