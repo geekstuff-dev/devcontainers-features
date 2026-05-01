@@ -15,7 +15,7 @@ Installs k9s
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Select k9s version | string | v0.32.5 |
+| version | Select k9s version | string | v0.50.18 |
 
 
 
