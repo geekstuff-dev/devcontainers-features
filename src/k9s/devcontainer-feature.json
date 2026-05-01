@@ -1,14 +1,14 @@
 {
 	"name": "K9s",
 	"id": "k9s",
-	"version": "0.1.7",
+	"version": "0.2.0",
 	"description": "Installs k9s",
-	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/k9s/-/blob/v0.1.7/README.md",
-	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/k9s/-/blob/v0.1.7/LICENSE",
+	"documentationURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/k9s/-/blob/v0.2.0/README.md",
+	"licenseURL": "https://gitlab.com/geekstuff.dev/devcontainers/features/k9s/-/blob/v0.2.0/LICENSE",
 	"options": {
         "version": {
             "type": "string",
-            "default": "v0.32.5",
+            "default": "v0.50.18",
             "description": "Select k9s version"
         }
     },
