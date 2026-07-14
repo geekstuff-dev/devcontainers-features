@@ -8,7 +8,7 @@ if test -e $LIB_DEVCONTAINER_FEATURES/buildtime-http-proxy.sh; then
 fi
 
 # If K9s present and version does not match, delete it and redownload
-CURR_K9S_PATH=$(command -v k9s)
+CURR_K9S_PATH=$(command -v k9s || true)
 if test -n "$CURR_K9S_PATH"; then
     CURR_K9S_VERSION=$(k9s version -s | grep Version | rev | cut -d' ' -f1 | rev)
     echo "Existing k9s version: $CURR_K9S_VERSION"
