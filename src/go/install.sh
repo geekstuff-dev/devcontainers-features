@@ -40,11 +40,11 @@ $GO install honnef.co/go/tools/cmd/staticcheck@latest
 GOLANGCILINT_VERSION="${GOLANGCILINTVERSION:-"latest"}"
 if test "$GOLANGCILINT_VERSION" = "latest" || test "$GOLANGCILINT_VERSION" = ""; then
     echo "Installing golangci-lint latest..."
-    curl -fsSL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | \
+    curl -fsSL https://golangci-lint.run/install.sh | \
         sh -s -- -b "/go/bin"
 else
     echo "Installing golangci-lint ${GOLANGCILINT_VERSION}..."
-    curl -fsSL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | \
+    curl -fsSL https://golangci-lint.run/install.sh | \
         sh -s -- -b "/go/bin" "v${GOLANGCILINT_VERSION}"
 fi
 
