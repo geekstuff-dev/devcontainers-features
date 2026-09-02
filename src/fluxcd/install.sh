@@ -8,10 +8,11 @@ if ! command -v curl 1>/dev/null 2>/dev/null; then
     elif command -v apt 1>/dev/null 2>/dev/null; then
         apt-get update
         apt-get install -y curl
+        rm -rf /var/lib/apt/lists/*
     fi
 fi
 
-curl -s https://fluxcd.io/install.sh | bash
+curl -vs https://fluxcd.io/install.sh | bash
 flux completion bash > /etc/bash_completion.d/fluxcd
 
 # copy assets
