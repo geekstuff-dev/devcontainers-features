@@ -1,22 +1,15 @@
 {
     "id": "claude",
     "name": "Clause",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "installsAfter": [
         "ghcr.io/geekstuff-dev/devcontainers-features/basics"
     ],
-    "mounts": [
-        {
-            "source": "cicproxy_claude",
-            "target": "/home/dev/.claude",
-            "type": "volume"
-        }
-    ],
-	"mounts": [{
-		"source": "dev-${devcontainerId}-claude",
-		"target": "/home/dev/.claude",
-		"type": "volume"
-	}],
+    "mounts": [{
+        "source": "dev-${devcontainerId}-claude",
+        "target": "/home/dev/.claude",
+        "type": "volume"
+    }],
     "containerEnv": {
         "CLAUDE_CONFIG_DIR": "/home/dev/.claude",
         "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1"
