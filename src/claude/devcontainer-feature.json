@@ -1,0 +1,33 @@
+{
+    "id": "claude",
+    "version": "0.0.1",
+    "installsAfter": [
+        "ghcr.io/geekstuff-dev/devcontainers-features/basics"
+    ],
+    "mounts": [
+        {
+            "source": "cicproxy_claude",
+            "target": "/home/dev/.claude",
+            "type": "volume"
+        }
+    ],
+	"mounts": [{
+		"source": "dev-${devcontainerId}-claude",
+		"target": "/home/dev/.claude",
+		"type": "volume"
+	}],
+    "containerEnv": {
+        "CLAUDE_CONFIG_DIR": "/home/dev/.claude",
+        "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "Anthropic.claude-code"
+            ]
+        }
+    },
+    "onCreateCommand": {
+        "claude-volume-chown": "sudo chown -R dev: /home/dev/.claude"
+    }
+}
