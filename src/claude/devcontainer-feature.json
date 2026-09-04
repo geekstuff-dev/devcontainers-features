@@ -1,6 +1,7 @@
 {
     "id": "claude",
-    "version": "0.0.1",
+    "name": "Clause",
+    "version": "0.0.2",
     "installsAfter": [
         "ghcr.io/geekstuff-dev/devcontainers-features/basics"
     ],
