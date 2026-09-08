@@ -1,0 +1,13 @@
+{
+    "name": "Taskfile",
+    "id": "taskfile",
+    "version": "0.0.1",
+    "description": "Installs go-task/task with bash completion (taskfile.dev)",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "v3.53.1",
+            "description": "Select task version"
+        }
+    }
+}
